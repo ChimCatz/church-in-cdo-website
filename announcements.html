@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Announcements — Church in Cagayan de Oro</title>
+<meta name="description" content="Latest announcements, news, and notices for the church in Cagayan de Oro.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-title" href="index.html">Church in Cagayan de Oro<span>Christ is our life, the church is our living</span></a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="beliefs.html">Beliefs</a></li>
+        <li><a href="announcements.html" aria-current="page">Announcements</a></li>
+        <li><a href="meetings.html">Meetings</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Announcements</h1>
+    <p>News, notices, and updates for the saints. Newest items are at the top.</p>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <!--
+      HOW TO ADD A NEW ANNOUNCEMENT
+      Copy one <article class="announcement"> block below, paste it right
+      after this comment (so it appears at the top / newest first), and
+      edit the date, tag, title, and text.
+    -->
+
+    <article class="announcement">
+      <span class="date">September 8, 2026</span>
+      <h3>Welcome to our new website<span class="tag">General</span></h3>
+      <p>We're glad to launch this site as a simple gathering place for announcements, meeting information, and resources for the saints in Cagayan de Oro. More updates coming soon — check back often!</p>
+    </article>
+
+    <article class="announcement">
+      <span class="date">September 1, 2026</span>
+      <h3>Lord's Day Meeting this week<span class="tag">Meeting</span></h3>
+      <p>Join us this Lord's Day for the reading of the Word, prayer, and hymns. See the <a href="meetings.html">meeting schedule</a> for time and location.</p>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>&copy; <span id="year"></span> Church in Cagayan de Oro</div>
+    <div><a href="contact.html">Contact us</a></div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

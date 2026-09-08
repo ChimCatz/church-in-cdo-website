@@ -1,0 +1,7 @@
+# Reference/inspiration pages downloaded from other church websites — not part of our site
+*.html.bak
+/reference/
+
+# OS
+.DS_Store
+Thumbs.db
