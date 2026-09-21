@@ -8,3 +8,5 @@ Thumbs.db
 
 # Saved source pages and drafts used to build content (not part of the site)
 /temp/
+__pycache__/
+*.pyc
