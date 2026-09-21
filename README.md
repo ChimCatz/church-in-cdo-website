@@ -13,6 +13,21 @@ Plain HTML/CSS, no build step, deployable directly on GitHub Pages.
 - `resources.html` — Bible, ministry, and other local church links
 - `contact.html` — Contact info
 
+## Look & feel
+
+Styling follows the LSM Online Publications site (deep-green nav bar, green
+links/buttons, cream and tan neutrals, square corners). Colors are defined as
+variables at the top of `css/style.css`.
+
+- **Font:** Inter, self-hosted in `assets/fonts/` (Latin subset, variable
+  weight, SIL OFL license included). No external font service is used, so it
+  looks the same for every visitor. If it ever fails to load, a metric-matched
+  system fallback takes over.
+- **Logos:** web-ready versions live in `assets/web/` (seal, text logo in dark
+  and light, favicons, LSM mark). The large originals in `assets/` are source
+  files only and are not loaded by the pages.
+- `js/site.js` handles the footer year and the mobile menu.
+
 ## Editing announcements
 
 Open `announcements.html` and copy an existing `<article class="announcement">`

@@ -1,0 +1,6 @@
+TEXT LOGO
+Text logo is Inter. Font size 125. 
+
+In Canva its:
+Horizontal letter spacing is -68
+Vertical line spacing is 0.84

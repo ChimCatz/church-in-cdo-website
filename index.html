@@ -3,17 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Church in Cagayan de Oro</title>
+<title>The Church in Cagayan de Oro City</title>
 <meta name="description" content="Church in Cagayan de Oro — Christ is our life, the church is our living. Meeting times, announcements, and resources.">
+<meta name="theme-color" content="#165411">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/web/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/web/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<header class="site-header">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="brand-bar">
   <div class="container">
-    <a class="site-title" href="index.html">Church in Cagayan de Oro<span>Christ is our life, the church is our living</span></a>
-    <nav class="main-nav" aria-label="Main">
-      <ul>
+    <a class="brand" href="index.html" aria-label="The church in Cagayan de Oro City — Home">
+      <img class="brand-seal" src="assets/web/seal-192.png" width="64" height="64" alt="">
+      <img class="brand-text" src="assets/web/text-logo.png" width="214" height="46" alt="the church in Cagayan de Oro City">
+    </a>
+    <a class="button inverse" href="meetings.html">Visit Us</a>
+  </div>
+</header>
+
+<nav class="main-nav" aria-label="Main">
+  <div class="container">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+      <span class="nav-toggle-icon" aria-hidden="true"></span> Menu
+    </button>
+    <ul id="nav-list">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="beliefs.html">Beliefs</a></li>
@@ -21,21 +39,25 @@
         <li><a href="meetings.html">Meetings</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    </ul>
   </div>
-</header>
+</nav>
 
 <section class="hero">
   <div class="container">
-    <h1>Christ is our life, the church is our living</h1>
-    <p>We are a local church in Cagayan de Oro City, gathering simply in the name of the Lord Jesus to know Him, love Him, and grow in Him together.</p>
-    <a class="button" href="announcements.html">See Announcements</a>
-    <a class="button secondary" href="meetings.html">Meeting Times</a>
+    <div>
+      <h1>Christ is our life, the church is our living</h1>
+      <p>We are a local church in Cagayan de Oro City, gathering simply in the name of the Lord Jesus to know Him, love Him, and grow in Him together.</p>
+      <div class="hero-actions">
+        <a class="button" href="announcements.html">See Announcements</a>
+        <a class="button secondary" href="meetings.html">Meeting Times</a>
+      </div>
+    </div>
+    <img class="hero-seal" src="assets/web/seal-512.png" width="512" height="512" alt="" aria-hidden="true">
   </div>
 </section>
 
-<main>
+<main id="main">
   <div class="container">
 
     <section>
@@ -69,12 +91,48 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <div>&copy; <span id="year"></span> Church in Cagayan de Oro</div>
-    <div><a href="contact.html">Contact us</a></div>
+  <div class="footer-main">
+    <div class="container">
+      <div>
+        <a class="footer-brand" href="index.html" aria-label="The church in Cagayan de Oro City — Home">
+          <span class="footer-seal-badge"><img src="assets/web/seal-192.png" width="62" height="62" alt=""></span>
+          <img class="brand-text" src="assets/web/text-logo-light.png" width="205" height="44" alt="the church in Cagayan de Oro City">
+        </a>
+        <p class="footer-tagline">Christ is our life, the church is our living.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="beliefs.html">Beliefs</a></li>
+          <li><a href="announcements.html">Announcements</a></li>
+          <li><a href="meetings.html">Meetings</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Ministry</h2>
+        <ul class="footer-links">
+          <li><a href="https://www.lsm.org/" target="_blank" rel="noopener">Living Stream Ministry</a></li>
+          <li><a href="https://www.ministrybooks.org/" target="_blank" rel="noopener">LSM Online Publications</a></li>
+          <li><a href="https://online.recoveryversion.bible/" target="_blank" rel="noopener">Recovery Version Bible</a></li>
+        </ul>
+        <div class="footer-lsm">
+          <span class="footer-seal-badge"><img src="assets/web/lsm-logo-128.png" width="48" height="48" alt=""></span>
+          <span>In Christ &middot; Living Stream Ministry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="container">
+      <div>&copy; <span id="year"></span> The Church in Cagayan de Oro City</div>
+      <div><a href="contact.html">Contact us</a></div>
+    </div>
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/site.js" defer></script>
 </body>
 </html>
