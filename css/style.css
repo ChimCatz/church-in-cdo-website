@@ -146,7 +146,8 @@ img { max-width: 100%; height: auto; }
   min-width: 0;
 }
 
-.brand-seal { width: 64px; height: 64px; flex: none; }
+/* seal matches the full height of the text logo beside it */
+.brand-seal { width: 46px; height: 46px; flex: none; }
 .brand-text { width: auto; height: 46px; max-width: 100%; }
 
 .brand-bar .button { flex: none; }
@@ -196,7 +197,7 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 800px) {
   .brand-bar .button { display: none; }
-  .brand-seal { width: 52px; height: 52px; }
+  .brand-seal { width: 38px; height: 38px; }
   .brand-text { height: 38px; }
 
   /* Menu collapses only when JS is available to open it; without JS the
@@ -361,6 +362,225 @@ main li { max-width: 72ch; }
 }
 
 .page-header p { color: var(--color-text-soft); margin: 0.5rem 0 0; font-size: 1.05rem; }
+
+/* ---------- Long-form reading text (HWMR, etc.) ---------- */
+
+.prose {
+  max-width: 56rem;
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+
+.prose p,
+.prose li { max-width: none; }
+.prose p { margin: 0 0 1.4em; }
+
+.prose .lead {
+  font-size: 1.35rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--green-800);
+}
+
+.prose > :first-child { margin-top: 0; }
+.prose h2 { margin-top: 3rem; }
+
+/* where a passage was taken from */
+.prose .source {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+.prose h3 { margin: 2rem 0 0.75rem; color: var(--green-800); }
+.prose blockquote { margin: 1.75rem 0; padding: 1.25rem 1.5rem; font-weight: 400; color: var(--color-text); }
+.prose blockquote p { margin: 0; }
+.prose blockquote footer {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--green-800);
+}
+.prose blockquote footer::before { content: '— '; }
+
+/* ---------- Collapsible groups (native <details>, works without JS) ---------- */
+
+.group { border-bottom: 1px solid var(--color-border); }
+.group:first-of-type { border-top: 1px solid var(--color-border); }
+
+.group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0.25rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.group > summary::-webkit-details-marker { display: none; }
+
+/* chevron */
+.group > summary::after {
+  content: '';
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 2px solid var(--green-800);
+  border-bottom: 2px solid var(--green-800);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.group[open] > summary::after { transform: rotate(-135deg); }
+
+.group > summary h2 { margin: 0; font-size: 1.35rem; }
+.group > summary h2::after { display: none; }
+.group > summary:hover h2 { color: var(--green-600); }
+
+.group-body { padding: 0.25rem 0.25rem 2rem; }
+.group-body > :not(.week-card) { max-width: 68ch; }
+
+/* ---------- Weekly messages: week card + message tiles ---------- */
+
+.week-card {
+  border: 2px solid var(--green-800);
+  background: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.week-head { padding: 1.25rem 1.5rem 0.25rem; }
+.week-head h3 { margin: 0; font-size: 1.7rem; font-weight: 800; color: var(--green-800); }
+
+.week-card .week-meta {
+  display: flex;
+  flex-direction: column;
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+
+/* Tiles only make sense with JS; without it every message is simply shown below. */
+.msg-tiles { display: none; }
+
+.js .msg-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+  padding: 1.1rem 1.5rem 1.5rem;
+}
+
+.msg-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 7.5rem;
+  padding: 0.8rem 0.9rem;
+  border: 2px solid var(--green-800);
+  border-radius: 0;
+  background: #fff;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.msg-num { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; color: var(--green-800); }
+
+.msg-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.msg-tile:hover { background: var(--cream-100); box-shadow: var(--shadow-md); }
+
+.msg-tile[aria-expanded="true"] { background: var(--green-800); color: #fff; }
+.msg-tile[aria-expanded="true"] .msg-num { color: #fff; }
+
+.msg-tile:disabled {
+  border: 2px dashed var(--color-border);
+  background: var(--cream-100);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.msg-tile:disabled .msg-num { color: var(--color-text-muted); }
+
+.msg-panels { padding: 0 1.5rem 1.5rem; }
+.js .msg-panel { display: none; }
+.js .msg-panel.is-open { display: block; }
+
+.msg-panel {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: var(--cream-100);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--tan-500);
+  scroll-margin-top: 4.5rem;
+}
+
+.msg-head .msg-eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-600);
+}
+
+.msg-head h4 { margin: 0.2rem 0 1.5rem; font-size: 1.45rem; font-weight: 800; color: var(--green-800); }
+
+.msg-body p { max-width: 68ch; margin: 0 0 1em; }
+
+.msg-body h5 {
+  margin: 2.25rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--tan-500);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-800);
+}
+.msg-body h5:first-child { margin-top: 0; }
+
+.msg-body .label { margin: 1.5rem 0 0.4rem; font-weight: 700; color: var(--green-800); }
+
+.msg-body .label.day {
+  margin-top: 1.9rem;
+  padding-left: 0.65rem;
+  border-left: 3px solid var(--tan-500);
+  font-size: 1.05rem;
+}
+
+.msg-body .verse {
+  padding-left: 1rem;
+  border-left: 3px solid var(--tan-500);
+  color: var(--color-text-soft);
+}
+
+.msg-body .op-main { margin-top: 1.5em; font-weight: 700; }
+.msg-body .op-sub { padding-left: 1.25rem; }
+.msg-body .op-sub2 { padding-left: 2.5rem; }
+
+.msg-body .topic { margin-bottom: 0.2em; font-weight: 500; }
+.msg-body .topic-note { padding-left: 1rem; font-size: 0.95rem; color: var(--color-text-muted); }
+
+.msg-panel .msg-source { margin: 2rem 0 0; font-size: 0.85rem; color: var(--color-text-muted); }
+
+@media (max-width: 800px) {
+  .week-head { padding: 1rem 1rem 0.25rem; }
+  .js .msg-tiles { grid-template-columns: repeat(2, 1fr); padding: 1rem 1rem 1.25rem; }
+  .msg-panels { padding: 0 1rem 1.25rem; }
+  .msg-panel { padding: 1.1rem; }
+}
 
 /* ---------- Cards ---------- */
 

@@ -6,6 +6,7 @@ Plain HTML/CSS, no build step, deployable directly on GitHub Pages.
 ## Pages
 
 - `index.html` — Home
+- `hwmr.html` — HWMR (opening text drafted in `temp/HWMR/`)
 - `about.html` — About Us
 - `beliefs.html` — What We Believe
 - `announcements.html` — Announcements / News (the "quick terminal" for saints)
@@ -24,9 +25,22 @@ variables at the top of `css/style.css`.
   looks the same for every visitor. If it ever fails to load, a metric-matched
   system fallback takes over.
 - **Logos:** web-ready versions live in `assets/web/` (seal, text logo in dark
-  and light, favicons, LSM mark). The large originals in `assets/` are source
+  green and light, favicons, LSM mark). The large originals in `assets/` are source
   files only and are not loaded by the pages.
 - `js/site.js` handles the footer year and the mobile menu.
+
+## HWMR page
+
+The reading area of `hwmr.html` is generated, not hand-edited. `tools/build_hwmr.py`
+builds it from the files in `temp/HWMR/` (which is git-ignored):
+
+- `Opening-text.txt` — the opening text (collapsible groups)
+- one saved "Prophesying Reference" page per message (the week card and its tiles)
+
+To add or update a message (for example Message Eleven), save its page into
+`temp/HWMR/` and run `python tools/build_hwmr.py` (needs `pip install lxml`).
+The week card's training name and location are set at the top of that script.
+Each message can be linked directly, e.g. `hwmr.html#msg-3`.
 
 ## Editing announcements
 
